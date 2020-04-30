@@ -6,19 +6,27 @@ import Search from './components/Search/index';
 import Home from './components/Home/index';
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+
 akitaDevtools();
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <DocumentTitle prefix="Reddit Threads" listen />
-        <div>
-          <Search />
-        </div>
-      </header>
-
-      <Home />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/dashboard">
+            <Search />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };
